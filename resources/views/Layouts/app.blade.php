@@ -11,7 +11,7 @@
 </head>
 	@extends('../inc/header')
 <body style="min-height:100vh; display:flex; flex-direction:column;">
-	<div style="flex:1; margin-top:5%; margin-bottom:1%">
+	<div style="flex:1; margin-top:30%; margin-bottom:25%">
 		@yield('content')
 	</div>
 	@extends('../inc/footer')
