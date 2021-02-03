@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-	<div class="container" style="background-color:grey">
+	<div class="container" style="background-color:grey; border:solid 1px black">
 		<h1 style="display:flex; justify-content:center">CONTACT ME</h1>
 		<div class="row">
 			<div class="col-md-5">
@@ -23,7 +23,10 @@
 			<div class="col-md-7">
 				<h3>Par e-mail</h3>
 				{{ Form::open(['url' => 'contact']) }}
+				<!-- <div class="form-group {{ $errors->has('name') ? 'has-error' : ''}}"> -->
 					{{ Form::text('name', null, ['class' => 'form-control form-control', 'placeholder' => 'Nom / Prénom *']) }} <br>
+					<!-- {{ $errors->first('name', '<small class="help-block">:message</small>') }} <br> -->
+				<!-- </div> -->
 					{{ Form::email('email', null, ['class' => 'form-control', 'placeholder'=> 'E-mail *']) }} <br>
 					{{ Form::textarea('message', null, ['class' => 'form-control', 'placeholder' => 'Message *']) }} <br>
 					{{ Form::submit('Envoyer', ['class'=>'btn btn-primary btn-lg btn-block']) }}

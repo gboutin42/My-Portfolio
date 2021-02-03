@@ -1,0 +1,20 @@
+header {
+	width: 100%;
+	position:fixed;
+	padding:1%;
+	background: linear-gradient(135deg, rgba(0,0,0,1) 0%, rgba(71,71,73,1) 50%, rgba(0,0,0,1) 100%);
+}
+
+footer {
+	background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(71,71,73,1) 50%, rgba(0,0,0,1) 100%);
+}
+
+.logo-social-network {
+	width: 10%;
+	transition: 1s;
+}
+
+.logo-social-network:hover {
+	transform: rotate(360deg);
+	transition-duration: 1s;
+}

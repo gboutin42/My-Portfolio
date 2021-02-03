@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Mail;
+use App\Http\Requests\ContactRequest;
 
 class ContactController extends Controller
 {
@@ -12,14 +13,12 @@ class ContactController extends Controller
 		return view('contact');
 	}
 
-	public function postMessage(Request $request)
+	public function postMessage(ContactRequest $request)
 	{
-		if ($request) {
-			$name = ($request->input('name') != "") ? $request->input('name') : "belle inconnu";
-			$email = ($request->input('email') != "") ? $request->input('email') : "extra ordinaire que vous n'avez pas renseignez";
-			$message = ($request->input('message') != "") ? "\"" . $request->input('message') . "\"" : "imaginaire";
-			return "Bonjour <b>" . $name . "</b> votre message <i>" . $message . "</i> est bien parti depuis l'adresse email " . $email;
-		}
-		return "Erreur";
+		Mail::send('emails.contact', $request->all(), function($message) {
+			$message->to('boutin_gregory@yahoo.com')->subject('Contact');
+		});
+
+		return view('confirmSendMessage');
 	}
 }
